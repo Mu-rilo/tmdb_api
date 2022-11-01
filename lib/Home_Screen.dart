@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
 
   //
   Future fetch() async {
-    const String apiKey = '67ccb04828c7f32c706f63e51b751b72';
+    const String apiKey = '';
     final url = Uri.parse('https://api.themoviedb.org/3/movie/popular?api_key=$apiKey&language=pt-BR&page=$page');
     final response = await http.get(url);
 
