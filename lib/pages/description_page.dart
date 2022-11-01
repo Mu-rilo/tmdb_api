@@ -24,7 +24,6 @@ class Description_Page extends StatefulWidget {
 
 class _Description_PageState extends State<Description_Page> {
   //
-  final controller = ScrollController();
   List popular = [];
   int page = 1;
 

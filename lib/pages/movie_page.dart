@@ -30,32 +30,32 @@ class _MoviePageState extends State<MoviePage> {
         ),
         itemCount: widget.popular.length,
         itemBuilder: (context, index) {
-          return InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        Description_Page(
-                          vote: widget.popular[index]['vote_count']
-                              .toString(),
-                          id: widget.popular[index]['id'],
-                          name: widget.popular[index]['title'],
-                          description: widget.popular[index]['overview'],
-                          banner: 'https://image.tmdb.org/t/p/w500' +
-                              widget.popular[index]['backdrop_path'],
-                          launch: widget.popular[index]['release_date'],
-                        ),
-                  ),
-                );
-              },
-              child: Image.network(
-                'https://image.tmdb.org/t/p/w220_and_h330_face/' +
-                    widget.popular[index]['poster_path'],
-                fit: BoxFit.cover,
-              )
-          );
+            return InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          Description_Page(
+                            vote: widget.popular[index]['vote_count']
+                                .toString(),
+                            id: widget.popular[index]['id'],
+                            name: widget.popular[index]['title'],
+                            description: widget.popular[index]['overview'],
+                            banner: 'https://image.tmdb.org/t/p/w500' +
+                                widget.popular[index]['backdrop_path'],
+                            launch: widget.popular[index]['release_date'],
+                          ),
+                    ),
+                  );
+                },
+                child: Image.network(
+                  'https://image.tmdb.org/t/p/w220_and_h330_face/' +
+                      widget.popular[index]['poster_path'],
+                  fit: BoxFit.cover,
+                )
+            );
         }
-    );
+        );
   }
 }

@@ -24,18 +24,19 @@ class _HomePageState extends State<HomePage> {
   int page = 1;
 
   //
-  fetch() async {
+  Future fetch() async {
     const String apiKey = '67ccb04828c7f32c706f63e51b751b72';
     final url = Uri.parse('https://api.themoviedb.org/3/movie/popular?api_key=$apiKey&language=pt-BR&page=$page');
     final response = await http.get(url);
 
     if(response.statusCode == 200) {
       setState(() {
-        popularMovies = json.decode(response.body)['results'];
+      popularMovies = json.decode(response.body)['results'];
       });
     }
   }
   //
+
 
   //
   @override
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage> {
     loadMoreMovies.addListener(() async {
       if (loadMoreMovies.position.maxScrollExtent == loadMoreMovies.offset) {
         fetch();
-        page++;
+        page+=1;
       }
     }
     );
@@ -70,6 +71,7 @@ class _HomePageState extends State<HomePage> {
   //resetando a main page para começar na primeira página de filmes
  Future<void> refresh() async{
    setState(() {
+     page=1;
      fetch();
    });
  }
